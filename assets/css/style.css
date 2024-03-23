@@ -318,26 +318,6 @@ footer li a:hover{
 }
 
 
-footer .copyright a{
-    padding-top: 2px;
-    color: #000;
-    height: 40px;
-    width: 40px;
-    background-color: white;
-    display: inline-block;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 38px;
-    transition: 0.3s ease;
-    margin: 0 5px;
-}
-
-footer .copyright a:hover{
-    background-color: #fb774b;
-    color: white;
-}
-
-
 footer p{
     color: white;
 }
