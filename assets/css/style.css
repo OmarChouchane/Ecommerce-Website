@@ -367,6 +367,8 @@ footer p{
 
 
 
+
+
 /* Cart */
 
 .cart table{
@@ -446,4 +448,44 @@ footer p{
 .checkout-btn{
     background-color: #fb774b;
     color: white;
+}
+
+
+
+
+
+
+
+
+/* Login */
+
+#login-form{
+    width: 50%;
+    margin: 5px auto;
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #fb774b;
+}
+
+#login-form input{
+    width: 50%;
+    margin: 5px auto;
+}
+
+#login-form #login-btn{
+    background-color: #fb774b;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.4s ease;
+}
+
+#login-form #login-btn:hover{
+    background-color: black;
+}
+
+
+#login-form #register-url{
+    color: #fb774b;
 }
