@@ -416,7 +416,12 @@ footer p{
 }
 
 .cart .remove-btn{
+    color: #fb774b;
     font-size: 15px;
+    background-color: white;
+    border: none;
+    width: 100%;
+    text-align: left;
 }
 
 .cart .edit-btn{
