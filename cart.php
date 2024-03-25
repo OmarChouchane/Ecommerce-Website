@@ -70,7 +70,7 @@ if(isset($_POST['add_to_cart'])){
     $product_quantity = $_POST['product_quantity'];
     $product_array = $_SESSION['cart'][$product_id];
     $product_array['product_quantity'] = $product_quantity;
-    $_SESSION['cart'][$product_id] = $product_array;x
+    $_SESSION['cart'][$product_id] = $product_array;
 }
 
 
