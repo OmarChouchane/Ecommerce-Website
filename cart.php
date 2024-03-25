@@ -65,7 +65,16 @@ if(isset($_POST['add_to_cart'])){
 
     }
 
-}else{
+}else if(isset($_POST['edit_quantity'])){ // remove product from cart
+    $product_id = $_POST['product_id'];
+    $product_quantity = $_POST['product_quantity'];
+    $product_array = $_SESSION['cart'][$product_id];
+    $product_array['product_quantity'] = $product_quantity;
+    $_SESSION['cart'][$product_id] = $product_array;x
+}
+
+
+else{
     header("Location: index.php");
 }
 
@@ -170,8 +179,11 @@ if(isset($_POST['add_to_cart'])){
                 </td>
 
                 <td>
-                    <input type="number" value="<?php echo $value['product_quantity'];?>">
-                    <a class="edit-btn" href="">Edit</a>
+                    <form method="POST" action="cart.php">
+                        <input type="hidden" name="product_id" value="<?php echo $value['product_id'];?>">
+                        <input type="number" name="product_quantity" value="<?php echo $value['product_quantity'];?>">
+                        <input type="submit" name="edit_quantity" class="edit-btn" value="Edit">
+                    </form>
                 </td>
 
                 <td>

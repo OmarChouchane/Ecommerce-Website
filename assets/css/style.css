@@ -425,7 +425,10 @@ footer p{
 }
 
 .cart .edit-btn{
+    color: #fb774b;
     font-size: 14px;
+    background-color: white;
+    border: none;
 }
 
 .cart .product-info p{
