@@ -239,7 +239,9 @@ calculateTotalCart();
 
 
         <div class="checkout-container">
-            <button class="btn checkout-btn">CHECK OUT</button>
+            <form method="POST" action="checkout.php">
+            <input type="submit" name="checkout" class="btn checkout-btn" value="Check Out">
+            </form>
         </div>
 
     </section>
