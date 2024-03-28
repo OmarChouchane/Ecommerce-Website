@@ -58,12 +58,20 @@ if(isset($_POST['register'])){
                 $_SESSION['user_email'] = $email;
                 $_SESSION['user_name'] = $name;
                 $_SESSION['logged_in'] = true;
-                header('location: account.html?register=You registered successfully');
+                header('location: account.php?register=You registered successfully');
             }else{
                 header('location: register.php?error=could not create account at the moment, try again later');
             }
         }
     }
+
+
+//if user is already logged in
+}elseif(isset($_SESSION['logged_in'])){
+
+    header('location: account.php');
+    exit();
+
 }
 
 
@@ -154,7 +162,7 @@ if(isset($_POST['register'])){
                     <input type="submit" name="register" class="btn" id="register-btn" value="Register">
                 </div>
                 <div class="form-group">
-                    <a id="login-url" class="btn" href="">Do you have an account ? Login</a>
+                    <a id="login-url" class="btn" href="login.php">Do you have an account ? Login</a>
                 </div>
             </form>
         </div>
