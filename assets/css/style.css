@@ -598,20 +598,10 @@ footer p{
     border-collapse: collapse;
 }
 
-.orders .product-info{
-    display: flex;
-    flex-wrap: wrap;
-}
-
 .orders th{
-    text-align: left;
     padding: 5px 10px;
     color: white;
     background-color: #fb774b;
-}
-
-.orders th:nth-child(2){
-    text-align: right;
 }
 
 .orders td{
@@ -625,6 +615,17 @@ footer p{
 }
 
 
+.orders .order-details-btn{
+    color: white;
+    background-color: #fb774b;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.4s ease;
+}
+
+.orders .order-details-btn:hover{
+    background-color: black !important;
+}
 
 
 
