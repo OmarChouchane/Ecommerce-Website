@@ -656,10 +656,21 @@ footer p{
 #checkout-form #checkout-btn{
     color: white;
     background-color: #fb774b;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.4s ease;
 }
 
 
+#checkout-form #checkout-btn:hover{
+    background-color: black;
+}
 
+#checkout-form label ,
+#checkout-form p{
+    font-weight: bold;
+}
 
 
 
@@ -674,3 +685,6 @@ footer p{
 #contact span{
     color: #fb774b;
 }
+
+
+
