@@ -3,8 +3,21 @@
 
 session_start();
 
+
+
 include 'server/connection.php';
 
+
+//if user is already logged in
+if(isset($_SESSION['logged_in'])){
+
+    header('location: account.php');
+    exit();
+
+}
+
+
+//if user is not logged in
 if(isset($_POST['register'])){
 
 
@@ -66,14 +79,7 @@ if(isset($_POST['register'])){
     }
 
 
-//if user is already logged in
-}elseif(isset($_SESSION['logged_in'])){
-
-    header('location: account.php');
-    exit();
-
 }
-
 
 ?>
 
