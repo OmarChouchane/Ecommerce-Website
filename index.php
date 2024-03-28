@@ -385,7 +385,7 @@
 
         <div class="copyright mt-5">
             <div class="row container mx-auto text-center">
-                    <p>eCommerce @ 2025 All Rights Reserves</p>
+                    <p>eCommerce @ 2025 All Rights Reserved to Maher Jaziri</p>
             </div>
         </div>
     </footer>

@@ -5,13 +5,13 @@ session_start();
 
 if(isset($_POST['add_to_cart'])){
 
+    if(isset($_SESSION['cart'])){ /// if cart is not empty
 
-    if(isset($_SESSION['cart'])){ // if the cart is not empty
+        $product_array_ids = array_column($_SESSION['cart'], 'product_id');
+        
+        if(!in_array($_POST['product_id'], $product_array_ids)){ // if product is not in cart
 
-
-        $products_array_ids = array_column($_SESSION['cart'],"product_id"); // [2,3,4,10,15]
-
-        if(!in_array($_POST['product_id'],$products_array_ids)){// if the product is not in the cart
+            $product_id = $_POST['product_id'];
 
             $product_array = array(
                 'product_id' => $_POST['product_id'],
@@ -21,62 +21,58 @@ if(isset($_POST['add_to_cart'])){
                 'product_quantity' => $_POST['product_quantity']
             );
 
-            $_SESSION['cart'][$_POST['product_id']] = $product_array; 
+            $_SESSION['cart'][$product_id] = $product_array;
 
-        }else{ // if the product is in the cart
-
-            foreach($_SESSION['cart'] as $key => $value){
-
-                if($value['product_id'] == $_POST['product_id']){
-
-                    $_SESSION['cart'][$key]['product_quantity'] += $_POST['product_quantity'];
-
-                }
-
-            }
+        }else{ 
+            echo "<script>alert('Product is already in cart')</script>";
 
         }
 
+    }else{ // if cart is empty
 
-    }else{ // if this is the first product in the cart
+        $product_id = $_POST['product_id'];
+        $product_name = $_POST['product_name'];
+        $product_price = $_POST['product_price'];
+        $product_image = $_POST['product_image'];
+        $product_quantity = $_POST['product_quantity'];
 
         $product_array = array(
-            'product_id' => $_POST['product_id'],
-            'product_name' => $_POST['product_name'],
-            'product_price' => $_POST['product_price'],
-            'product_image' => $_POST['product_image'],
-            'product_quantity' => $_POST['product_quantity']
+            'product_id' => $product_id,
+            'product_name' => $product_name,
+            'product_price' => $product_price,
+            'product_image' => $product_image,
+            'product_quantity' => $product_quantity
         );
 
-        $_SESSION['cart'][$product_id] = $product_array; 
+        $_SESSION['cart'][$product_id] = $product_array;
+        $_SESSION['cart'][$product_id] = $product_array;
 
     }
+
 
 
 }else if(isset($_POST['remove_product'])){ // remove product from cart
 
-    foreach($_SESSION['cart'] as $key => $value){
 
-        if($value['product_id'] == $_POST['product_id']){
+    $product_id = $_POST['product_id'];
+    unset($_SESSION['cart'][$product_id]);
+    
+    
+}else if(isset($_POST['edit_quantity'])){ // edit product quantity
 
-            unset($_SESSION['cart'][$key]);
-
-        }
-
-    }
-
-}else if(isset($_POST['edit_quantity'])){ // remove product from cart
+    
     $product_id = $_POST['product_id'];
     $product_quantity = $_POST['product_quantity'];
-    $product_array = $_SESSION['cart'][$product_id];
-    $product_array['product_quantity'] = $product_quantity;
-    $_SESSION['cart'][$product_id] = $product_array;
-}
+
+    $_SESSION['cart'][$product_id]['product_quantity'] = $product_quantity;
 
 
-else{
-    header("Location: index.php");
+}else{
+
+    header('Location: index.php');
+
 }
+
 
 
 ?>
@@ -122,7 +118,7 @@ else{
         <div class="collapse navbar-collapse nav-buttons" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" href="index.php">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="shop.html">Shop</a>
