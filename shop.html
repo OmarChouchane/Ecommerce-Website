@@ -12,6 +12,72 @@
     <link rel="icon" href="/assets/imgs/logo2.png" type="image/x-icon">
 
     <style>
+
+
+        .container1 {
+            margin: auto;
+            overflow: hidden;
+            position: relative; /* Added position relative */
+        }
+
+        /* Search section styles */
+        #search {
+            padding: 20px;
+            width: 250px; /* Adjust width as needed */
+            position: fixed;
+            overflow-y: hidden;
+        }
+
+        /* Shop section styles */
+        #shop {
+            padding: 20px;
+            width: calc(100% - 250px); /* Adjust width to take the remaining space */
+            margin-left: 250px; /* Adjust margin to make space for the fixed search */
+        }
+
+        /* Larger devices (width > 768px) */
+        @media screen and (min-width: 768px) {
+            #search {
+                width: 250px; /* Adjust width as needed */
+            }
+        
+            #shop {
+                width: calc(100% - 250px); /* Adjust width to take the remaining space */
+                margin-left: 250px; /* Adjust margin to make space for the fixed search */
+            }
+        }
+
+        /* Smaller devices (width <= 768px) */
+        @media screen and (max-width: 768px) {
+            #search {
+                position: relative !important; /* Not fixed */
+                width: 100%; /* Full width */
+            }
+        
+            #shop {
+                margin-left: 0; /* Remove margin */
+                width: 100%; /* Full width */
+                padding-top: 0 !important;
+            }
+
+        }
+
+
+/* Range input styles */
+#customRange {
+    width: 100%;
+}
+
+/* Range labels styles */
+.range-labels {
+    display: flex;
+    justify-content: space-between; /* Distribute items evenly */
+}
+
+
+
+
+
         hr{
             width: 50px;
             border: 2px solid #fbb710;
@@ -70,9 +136,63 @@
     </nav>
 
 
+    <div class="container1">
 
-    <!--Featured-->
-    <section id="featured" class="my-5 py-4">
+
+    <!--Search-->
+    <section id="search" class="my-5 py-4 ms-2">
+        <div class="container mt-5 py-5">
+            <p>Search Products</p>
+            <hr>
+        </div>
+
+        <form>
+
+            <div class="row mx-auto container">
+                <div class="col-12">
+                    <p>Category</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="category" id="category_one">
+                        <label class="form-check-label" for="flexRadioDefault1">Shoes</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="category" id="category_two">
+                        <label class="form-check-label" for="flexRadioDefault2">Coats</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="category" id="category_three">
+                        <label class="form-check-label" for="flexRadioDefault3">Watches</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="category" id="category_four">
+                        <label class="form-check-label" for="flexRadioDefault4">Bags</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mx-auto container mt-5">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="customRange">Price</label>
+                        <input type="range" class="form-range" min="1" max="1000" id="customRange">
+                        <div class="range-labels">
+                            <span>1</span>
+                            <span>1000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group m-3">
+                <input type="submit" name="search" value="Search" class="btn btn-primary">
+            </div>
+        </form>
+    </section>
+
+
+
+    <!--Shop-->
+    <section id="shop" class="my-5 py-4">
         <div class="container mt-5 py-5">
             <h3>Our Products</h3>
             <hr>
@@ -308,13 +428,11 @@
         </div>
     </section>
 
-
-
-
+    </div>
 
 
     <!--Footer-->
-    <footer class="mt-5 pt-5">
+    <footer id="footer" class="mt-5 pt-5">
         <div class="row container mx-auto pt-5">
             <div class="footer-one col-lg-3 col-md-6 col-sm-12">
                 <img src="assets/imgs/logo2.png" class="logo2" alt="">
@@ -372,7 +490,31 @@
             </div>
         </div>
     </footer>
+    
 
+
+    <script>
+        window.addEventListener('scroll', function() {
+            if (window.innerWidth > 576) {
+                var search = document.getElementById('search');
+                var footer = document.querySelector('footer');
+                var container = document.querySelector('.container1');
+                var footerOffset = footer.offsetTop;
+                var containerOffset = container.offsetTop;
+                var containerHeight = container.offsetHeight;
+                var windowHeight = window.innerHeight;
+                var scrollPosition = window.scrollY;
+                
+                if (scrollPosition >= footerOffset - windowHeight + 80) {
+                    search.style.position = 'absolute';
+                    search.style.top = containerHeight - search.offsetHeight - 8 + 'px';
+                } else {
+                    search.style.position = 'fixed';
+                    search.style.top = '0';
+                }
+            }
+        });
+    </script>
 
 
 
