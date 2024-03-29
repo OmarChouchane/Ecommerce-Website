@@ -2,7 +2,7 @@
 
 session_start();
 
-if(!empty($_SESSION['cart']) && isset($_POST['checkout'])){
+if(!empty($_SESSION['cart'])){
 
 
 }else{
@@ -32,6 +32,11 @@ if(!empty($_SESSION['cart']) && isset($_POST['checkout'])){
         </div>
         <div class="mx-auto container">
             <form id="checkout-form" method="POST" action="server/place_order.php">
+                <p style="color:red;" class="text-center">
+                    <?php if(isset($_GET['message'])){?>
+                        Please <a style="text-decoration: none;" href="login.php">login </a>/ <a style="text-decoration: none;" href="register.php">register</a> to place an order
+                    <?php } ?>
+                </p>
                 <div class="form-group checkout-small-element">
                     <label>Name</label>
                     <input type="text" class="form-control" id="checkout-email" name="name" placeholder="Name" required>
