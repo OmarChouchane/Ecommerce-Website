@@ -36,7 +36,7 @@
                     <a class="nav-link" href="#">Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact Us</a>
+                    <a class="nav-link" href="contact.php">Contact Us</a>
                 </li>
                 <li class="nav-item "> 
                     <a href="cart.php"><i class="fa fa-shopping-cart"></i></a>            
