@@ -3,12 +3,32 @@
 include "server/connection.php";
 
 
-$stmt = $conn->prepare("SELECT * FROM products");
 
-$stmt->execute();
 
-$products = $stmt->get_result();
+// Check if the search button is clicked
+if(isset($_GET['search'])){
 
+    $category = $_GET['category'];
+    $price = $_GET['price'];
+
+    $stmt = $conn->prepare("SELECT * FROM products WHERE product_category = ? AND product_price <= ?");
+
+    $stmt->bind_param("si", $category, $price);
+
+    $stmt->execute();
+
+    $products = $stmt->get_result();
+
+
+
+// Check if the search button is not clicked
+}else{
+    $stmt = $conn->prepare("SELECT * FROM products");
+
+    $stmt->execute();
+
+    $products = $stmt->get_result();
+}
 
 
 ?>
@@ -158,30 +178,30 @@ $products = $stmt->get_result();
 
     <!--Search-->
     <section id="search" class="my-5 py-4 ms-2">
-        <div class="container mt-5 py-5">
+        <div class="container mt-5 pt-5">
             <p>Search Products</p>
             <hr>
         </div>
 
-        <form>
+        <form action="shop.php" method="GET">
 
             <div class="row mx-auto container">
                 <div class="col-12">
                     <p>Category</p>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="category" id="category_one">
+                        <input class="form-check-input" value="shoes" type="radio" name="category" id="category_one" <?php if(isset($_GET['category']) && $category == 'shoes') echo 'checked'; ?>>
                         <label class="form-check-label" for="flexRadioDefault1">Shoes</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="category" id="category_two">
+                        <input class="form-check-input" value="coats"  type="radio" name="category" id="category_two" <?php if(isset($_GET['category']) && $_GET['category'] == 'coats') echo 'checked'; ?>>
                         <label class="form-check-label" for="flexRadioDefault2">Coats</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="category" id="category_three">
+                        <input class="form-check-input" value="watches"  type="radio" name="category" id="category_three" <?php if(isset($_GET['category']) && $_GET['category'] == 'watches') echo 'checked'; ?>>
                         <label class="form-check-label" for="flexRadioDefault3">Watches</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="category" id="category_four">
+                        <input class="form-check-input" value="bags"  type="radio" name="category" id="category_four" <?php if(isset($_GET['category']) && $_GET['category'] == 'bags') echo 'checked'; ?>>
                         <label class="form-check-label" for="flexRadioDefault4">Bags</label>
                     </div>
                 </div>
@@ -191,7 +211,7 @@ $products = $stmt->get_result();
                 <div class="col-12">
                     <div class="form-group">
                         <label for="customRange">Price</label>
-                        <input type="range" class="form-range" min="1" max="1000" id="customRange">
+                        <input type="range" class="form-range" min="1" max="1000" id="customRange" value="<?php if(isset($_GET['search'])){ echo $price;}else{ echo '500';}?>" name="price">
                         <div class="range-labels">
                             <span>1</span>
                             <span>1000</span>
@@ -216,6 +236,12 @@ $products = $stmt->get_result();
             <p>Here you can check out our featured products</p>
         </div>
         <div class="row mx-auto container">
+
+        <?php if($products->num_rows == 0){?>
+            <div class="text-center">
+                <h3>No products found</h3>
+            </div>
+        <?php }?>
 
         <?php while($row = $products->fetch_assoc()) {?>
             <div class="product text-center col-lg-3 col-md-4 col-sm-12">
@@ -319,6 +345,7 @@ $products = $stmt->get_result();
 
 
     <script>
+
         window.addEventListener('scroll', function() {
             if (window.innerWidth > 576) {
                 var search = document.getElementById('search');
