@@ -150,6 +150,20 @@ button:hover{
     background-color: coral;
 }
 
+.button{
+    border: none;
+    background-color: black !important;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.4s ease;
+}
+
+.button:hover{
+    background-color: coral !important;
+}
+
 
 /* New */
 
