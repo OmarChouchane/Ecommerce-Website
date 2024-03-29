@@ -598,10 +598,24 @@ footer p{
     border-collapse: collapse;
 }
 
+.orders .product-info{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.orders .product-quantity{
+    float: right;
+}
+
 .orders th{
+    text-align: left;
     padding: 5px 10px;
     color: white;
     background-color: #fb774b;
+}
+
+.orders th:nth-child(3) {
+    text-align: right;
 }
 
 .orders td{
@@ -643,7 +657,7 @@ footer p{
     margin: 10px auto;
 }
 
-#checkout-form .checkout-large-element{
+#checkout-form .chec    kout-large-element{
     width: 96%;
 }
 

@@ -220,8 +220,9 @@ $orders = $stmt->get_result();
                 <td><span><?php echo $row['order_status'];?></span></td>
                 <td><span><?php echo $row['order_date'];?></span></td>
                 <td>
-                    <form action="">
-                        <input class="btn order-details-btn" type="submit" name="" value="details">
+                    <form action="order_details.php" method="POST">
+                    <input type="hidden" name="order_id" value="<?php echo $row['order_id'];?>">
+                        <input class="btn order-details-btn" type="submit" name="order_details_btn" value="details">
                     </form>
                 <td>
 
