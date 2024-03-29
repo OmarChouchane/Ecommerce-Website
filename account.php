@@ -222,6 +222,7 @@ $orders = $stmt->get_result();
                 <td>
                     <form action="order_details.php" method="POST">
                     <input type="hidden" name="order_id" value="<?php echo $row['order_id'];?>">
+                    <input type="hidden" name="order_status" value="<?php echo $row['order_status'];?>">
                         <input class="btn order-details-btn" type="submit" name="order_details_btn" value="details">
                     </form>
                 <td>
