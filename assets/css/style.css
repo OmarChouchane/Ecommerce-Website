@@ -210,11 +210,12 @@ button:hover{
 /* Product */
 
 .product{
-    cursor: pointer;
+    
     margin-bottom: 2rem;
 }
 
 .product img{
+    cursor: pointer;
     transition: 0.3s all;
 }
 
@@ -363,6 +364,7 @@ footer p{
     background-color: #fb774b;
     opacity: 1;
     transition: 0.4 all;
+    color: white;
 }
 
 .single-product .buy-btn:hover{

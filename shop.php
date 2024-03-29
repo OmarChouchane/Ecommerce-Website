@@ -1,3 +1,20 @@
+<?php 
+
+include "server/connection.php";
+
+
+$stmt = $conn->prepare("SELECT * FROM products");
+
+$stmt->execute();
+
+$products = $stmt->get_result();
+
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,16 +80,16 @@
         }
 
 
-/* Range input styles */
-#customRange {
-    width: 100%;
-}
+        /* Range input styles */
+        #customRange {
+            width: 100%;
+        }
 
-/* Range labels styles */
-.range-labels {
-    display: flex;
-    justify-content: space-between; /* Distribute items evenly */
-}
+        /* Range labels styles */
+        .range-labels {
+            display: flex;
+            justify-content: space-between; /* Distribute items evenly */
+        }
 
 
 
@@ -199,8 +216,10 @@
             <p>Here you can check out our featured products</p>
         </div>
         <div class="row mx-auto container">
-            <div onclick="window.location.href='single_product.html'" class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img src="assets/imgs/featured1.png" class="img-fluid mb-3">
+
+        <?php while($row = $products->fetch_assoc()) {?>
+            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
+                <img onclick="window.location.href='<?php echo "single_product.php?product_id=".$row['product_id'];?>'" src="assets/imgs/<?php echo $row['product_image'];?>" class="img-fluid mb-3">
                 <div class="star">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -208,207 +227,13 @@
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                 </div>
-                <h5 class ="p-name">Sports Shoes</h5>
-                <h4 class ="p-price">$199.9</h4>
-                <button class="buy-btn">BUY NOW</button>
-            </div>
-            <div onclick="window.location.href='single_product.html'" class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img src="assets/imgs/featured2.png" class="img-fluid mb-3">
-                <div class="star">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>
-                <h5 class ="p-name">Sports Shoes</h5>
-                <h4 class ="p-price">$199.9</h4>
-                <button class="buy-btn">BUY NOW</button>
-            </div>
-            <div onclick="window.location.href='single_product.html'" class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img src="assets/imgs/featured3.png" class="img-fluid mb-3">
-                <div class="star">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>
-                <h5 class ="p-name">Sports Shoes</h5>
-                <h4 class ="p-price">$199.9</h4>
-                <button class="buy-btn">BUY NOW</button>
-            </div>
-            <div onclick="window.location.href='single_product.html'" class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img src="assets/imgs/featured4.png" class="img-fluid mb-3">
-                <div class="star">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>
-                <h5 class ="p-name">Sports Shoes</h5>
-                <h4 class ="p-price">$199.9</h4>
-                <button class="buy-btn">BUY NOW</button>
-            </div>
-            <div onclick="window.location.href='single_product.html'" class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img src="/assets/imgs/watch1.png" class="img-fluid mb-3">
-                <div class="star">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>
-                <h5 class ="p-name">Sports Shoes</h5>
-                <h4 class ="p-price">$199.9</h4>
-                <button class="buy-btn">BUY NOW</button>
-            </div>
-            <div onclick="window.location.href='single_product.html'" class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img src="assets/imgs/watch2.png" class="img-fluid mb-3">
-                <div class="star">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>
-                <h5 class ="p-name">Sports Shoes</h5>
-                <h4 class ="p-price">$199.9</h4>
-                <button class="buy-btn">BUY NOW</button>
-            </div>
-            <div onclick="window.location.href='single_product.html'" class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img src="assets/imgs/watch3.png" class="img-fluid mb-3">
-                <div class="star">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>
-                <h5 class ="p-name">Sports Shoes</h5>
-                <h4 class ="p-price">$199.9</h4>
-                <button class="buy-btn">BUY NOW</button>
-            </div>
-            <div onclick="window.location.href='single_product.html'" class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img src="assets/imgs/watch4.png" class="img-fluid mb-3">
-                <div class="star">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>
-                <h5 class ="p-name">Sports Shoes</h5>
-                <h4 class ="p-price">$199.9</h4>
-                <button class="buy-btn">BUY NOW</button>
-            </div>
-            <div onclick="window.location.href='single_product.html'" class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img src="/assets/imgs/clothes1.png" class="img-fluid mb-3">
-                <div class="star">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>
-                <h5 class ="p-name">Sports Shoes</h5>
-                <h4 class ="p-price">$199.9</h4>
-                <button class="buy-btn">BUY NOW</button>
-            </div>
-            <div onclick="window.location.href='single_product.html'" class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img src="assets/imgs/clothes2.png" class="img-fluid mb-3">
-                <div class="star">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>
-                <h5 class ="p-name">Sports Shoes</h5>
-                <h4 class ="p-price">$199.9</h4>
-                <button class="buy-btn">BUY NOW</button>
-            </div>
-            <div onclick="window.location.href='single_product.html'" class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img src="assets/imgs/clothes3.png" class="img-fluid mb-3">
-                <div class="star">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>
-                <h5 class ="p-name">Sports Shoes</h5>
-                <h4 class ="p-price">$199.9</h4>
-                <button class="buy-btn">BUY NOW</button>
-            </div>
-            <div onclick="window.location.href='single_product.html'" class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img src="assets/imgs/clothes4.png" class="img-fluid mb-3">
-                <div class="star">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>
-                <h5 class ="p-name">Sports Shoes</h5>
-                <h4 class ="p-price">$199.9</h4>
-                <button class="buy-btn">BUY NOW</button>
-            </div>
-            <div onclick="window.location.href='single_product.html'" class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img src="assets/imgs/shoes1.png" class="img-fluid mb-3">
-                <div class="star">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>
-                <h5 class ="p-name">Sports Shoes</h5>
-                <h4 class ="p-price">$199.9</h4>
-                <button class="buy-btn">BUY NOW</button>
-            </div>
-            <div onclick="window.location.href='single_product.html'" class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img src="assets/imgs/shoes2.png" class="img-fluid mb-3">
-                <div class="star">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>
-                <h5 class ="p-name">Sports Shoes</h5>
-                <h4 class ="p-price">$199.9</h4>
-                <button class="buy-btn">BUY NOW</button>
-            </div>
-            <div onclick="window.location.href='single_product.html'" class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img src="assets/imgs/shoes3.png" class="img-fluid mb-3">
-                <div class="star">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>
-                <h5 class ="p-name">Sports Shoes</h5>
-                <h4 class ="p-price">$199.9</h4>
-                <button class="buy-btn">BUY NOW</button>
-            </div>
-            <div onclick="window.location.href='single_product.html'" class="product text-center col-lg-3 col-md-4 col-sm-12">
-                <img src="assets/imgs/shoes4.png" class="img-fluid mb-3">
-                <div class="star">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>
-                <h5 class ="p-name">Sports Shoes</h5>
-                <h4 class ="p-price">$199.9</h4>
-                <button class="buy-btn">BUY NOW</button>
+                <h5 class ="p-name"><?php echo $row['product_name'];?></h5>
+                <h4 class ="p-price">$<?php echo $row['product_price'];?></h4>
+                <button class="buy-btn" onclick="window.location.href='<?php echo "single_product.php?product_id=".$row['product_id'];?>'" >BUY NOW</button>
             </div>
 
-
+        <?php } ?>
+        
             <nav aria-label="page navigation">
                 <ul class="pagination justify-content-center mt-5">
                   <li class="page-item">
