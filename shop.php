@@ -23,12 +23,52 @@ if(isset($_GET['search'])){
 
 // Check if the search button is not clicked
 }else{
-    $stmt = $conn->prepare("SELECT * FROM products");
 
-    $stmt->execute();
+    //1. determine page number
+    if(isset($_GET['page_no']) && $_GET['page_no'] != ""){
+        // if user has entered a page number
+        $page_no = $_GET['page_no'];
+    }else{
+        // if user has not entered a page number
+        $page_no = 1;
+    
+    }
 
-    $products = $stmt->get_result();
+
+    //2. return page number of products
+    $stmt1 = $conn->prepare("SELECT COUNT(*) AS total_records FROM products");
+
+    $stmt1->execute();
+
+    $stmt1->bind_result($total_records);
+
+    $stmt1->store_result();
+
+    $stmt1->fetch();
+
+
+
+    //3. determine number of products per page
+    $total_records_per_page = 8;
+    
+    $offset = ($page_no - 1) * $total_records_per_page;
+
+    $previous_page = $page_no - 1;
+    $next_page = $page_no + 1;
+
+    $adjacent = "2";
+
+    $total_no_of_pages = ceil($total_records/$total_records_per_page);
+
+
+    //4. get all products  
+    $stmt2 = $conn->prepare("SELECT * FROM products LIMIT $offset, $total_records_per_page");
+    $stmt2->execute();
+    $products = $stmt2->get_result();
+    
 }
+
+
 
 
 ?>
@@ -134,6 +174,12 @@ if(isset($_GET['search'])){
             color: white;
             background-color: coral;
         }
+
+        .pagination li.active a {
+            background-color: orange !important;
+            border: 1px solid orange !important;
+        }
+        
     </style>
 
 
@@ -228,19 +274,23 @@ if(isset($_GET['search'])){
         
             <nav aria-label="page navigation">
                 <ul class="pagination justify-content-center mt-5">
-                  <li class="page-item">
-                    <a class="page-link" href="#">Previous</a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item" aria-current="page">
-                    <a class="page-link" href="#">2</a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">Next</a>
-                  </li>
+                    <li class="page-item <?php if($page_no <= 1){echo 'disabled';} ?>">
+                        <a class="page-link" href="<?php if($page_no <= 1){echo '#';}else{ echo '?page_no='.($page_no-1);} ?>">Previous</a>
+                    </li>
+                    <li class="page-item <?php if($page_no == 1){echo 'active';} ?>"><a class="page-link" href="?page_no=1">1</a></li>
+                    <li class="page-item <?php if($page_no == 2){echo 'active';} ?>" aria-current="page">
+                        <a class="page-link" href="?page_no=2">2</a>
+                    </li>
+                    <?php if($total_no_of_pages > 2){ ?>
+                        <li class="page-item"><a class="page-link" href="#">...</a></li>
+                        <li class="page-item <?php if($page_no > 2){ echo 'active'; }?>"><a class="page-link" href="<?php if($page_no < 3){ echo '?page_no=3'; }else{ echo '?page_no='.$page_no; }?>">
+                            <?php if($page_no < 3){ echo 3; }else{ echo $page_no; } ?></a></li>
+                    <?php } ?>
+                    <li class="page-item <?php if($page_no >= $total_no_of_pages){echo 'disabled';} ?>">
+                        <a class="page-link" href="<?php if($page_no >= $total_no_of_pages){echo '#';}else{ echo '?page_no='.($page_no+1);} ?>">Next</a>
+                    </li>
                 </ul>
-              </nav>
+            </nav>
 
         </div>
     </section>
