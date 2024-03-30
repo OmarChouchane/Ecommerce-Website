@@ -9,6 +9,7 @@
 
 body{
     font-family: 'Poppins',sans-serif;
+    font-weight: 300;
 }
 
 
@@ -19,22 +20,22 @@ h1{
 
 h2{
     font-size: 1.8rem;
-    font-weight: 600;
+    font-weight: 300;
 }
 
 h3{
     font-size: 1.5rem;
-    font-weight: 800;
+    font-weight: 400;
 }
 
 h4{
     font-size: 1.2rem;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 h5{
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: 300;
 }
 
 h6{

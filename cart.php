@@ -3,7 +3,10 @@
 
 session_start();
 
+
+
 if(isset($_POST['add_to_cart'])){
+    //if(isset($_SESSION['user_id']))
 
     if(isset($_SESSION['cart'])){ /// if cart is not empty
 
