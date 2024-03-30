@@ -2,6 +2,14 @@
 
 session_start();
 
+
+if(isset($_POST['order_pay_btn'])){
+
+    $order_status = $_POST['order_status'];
+    $total_order_price = $_POST['total_order_price'];
+
+}
+
 ?>
 
 
@@ -21,14 +29,16 @@ session_start();
             <hr class="mx-auto">
         </div>
         <div class="mx-auto container text-center">
-            <p><?php if(isset($_GET['order_status'])){ echo $_GET['order_status']; }?></p>
-            <p>Total payement : <?php if(isset($_SESSION['total'])){ echo $_SESSION['total']; }?></p>
             
-            <?php if(isset($_SESSION['total']) && $_SESSION['total'] != 0 && isset($_GET['order_status'])  &&  $_GET['order_status'] == "not paid"){?>
+        <?php if(isset($_SESSION['total']) && $_SESSION['total'] != 0){?>
+            <p>Total payement : $<?php echo $_SESSION['total'];?></p>
             <input class="button" type="submit" value="Pay Now">
-            <?php }else{ ?>
+        <?php } else if(isset($_POST['order_status'])  &&  $_POST['order_status'] == "not paid"){ ?>
+            <p>Total payement : $<?php echo $_POST['total_order_price'];?></p>
+            <input class="button" type="submit" value="Pay Now">
+        <?php }else{ ?>
                 <p>You don't have an order to pay</p>
-            <?php } ?>
+        <?php } ?>
         </div>
     </section>
 
