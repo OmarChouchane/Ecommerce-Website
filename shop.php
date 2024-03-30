@@ -101,6 +101,14 @@ if(isset($_GET['search'])){
             justify-content: space-between; /* Distribute items evenly */
         }
 
+        /* Style the range value */
+        #rangeValue {
+            display: inline-block;
+            margin-left: 10px;
+            font-weight: bold;
+            color: coral;
+        }
+
 
 
 
@@ -170,8 +178,10 @@ if(isset($_GET['search'])){
                         <input type="range" class="form-range" min="1" max="1000" id="customRange" value="<?php if(isset($_GET['search'])){ echo $price;}else{ echo '500';}?>" name="price">
                         <div class="range-labels">
                             <span>1</span>
+                            <span id="rangeValue"><?php if(isset($_GET['search'])){ echo $price;}else{ echo '500';}?></span>
                             <span>1000</span>
                         </div>
+                        
                     </div>
                 </div>
             </div>
@@ -263,6 +273,21 @@ if(isset($_GET['search'])){
                 }
             }
         });
+
+
+
+        // Get the range input element
+        var rangeInput = document.getElementById('customRange');
+
+        // Get the span element to display the range value
+        var rangeValue = document.getElementById('rangeValue');
+
+        // Update the range value display when the input changes
+        rangeInput.addEventListener('input', function() {
+            rangeValue.textContent = rangeInput.value;
+        });
+
+
     </script>
 
 
