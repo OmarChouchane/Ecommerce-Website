@@ -512,6 +512,19 @@ footer p{
     transition: 0.4s ease;
 }
 
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #login-form {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    #login-form {
+        width: 100%;
+    }
+}
+
 #login-form #login-btn:hover{
     background-color: black;
 }
@@ -537,6 +550,21 @@ footer p{
     padding: 20px;
     border-top: 1px solid #fb774b;
 }
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #register-form {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    #register-form {
+        width: 100%;
+    }
+}
+
 
 #register-form input{
     width: 50%;
