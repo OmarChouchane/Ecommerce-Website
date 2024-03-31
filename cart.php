@@ -1,7 +1,6 @@
 <?php 
 
 
-session_start();
 
 
 
@@ -111,7 +110,7 @@ function calculateTotalCart(){
 
 }
 
-calculateTotalCart();
+
 
 
 
@@ -151,7 +150,8 @@ calculateTotalCart();
             </tr>
 
 
-            <?php foreach($_SESSION['cart'] as $key => $value){ ?>
+            <?php if(isset($_SESSION['cart'])){ 
+                foreach($_SESSION['cart'] as $key => $value){ ?>
 
             <tr>
                 <td>
@@ -183,7 +183,7 @@ calculateTotalCart();
                 </td>
             </tr>
 
-            <?php }?>
+            <?php }}?>
 
 
         </table>
