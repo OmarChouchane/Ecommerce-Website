@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="assets/css/style.css">
     <title>The North Face</title>
-    <link rel="icon" href="/assets/imgs/logo2.png" type="image/x-icon">
+    <link rel="icon" href="/assets/imgs/logo22.png" type="image/x-icon">
 </head>
 <body>
     
