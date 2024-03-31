@@ -1,12 +1,11 @@
 <?php 
 
 
-
+session_start();
 
 
 if(isset($_POST['add_to_cart'])){
-    //if(isset($_SESSION['user_id']))
-
+    
     if(isset($_SESSION['cart'])){ /// if cart is not empty
 
         $product_array_ids = array_column($_SESSION['cart'], 'product_id');
@@ -193,7 +192,7 @@ function calculateTotalCart(){
             <table>
                 <tr>
                     <td>Total</td>
-                    <td>$<?php echo $_SESSION['total'];?></td>
+                    <td>$<?php if(isset($_SESSION['cart'])){  echo $_SESSION['total'];}else{ echo "0.00"; } ?></td>
                 </tr>
             </table>
         </div>
