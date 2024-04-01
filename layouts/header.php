@@ -14,15 +14,15 @@
 
     <link rel="stylesheet" href="assets/css/style.css">
     <title>The North Face</title>
-    <link rel="icon" href="/assets/imgs/logo22.png" type="image/x-icon">
+    <link rel="icon" href="/assets/imgs/dma9-logo.png" type="image/x-icon">
 </head>
 <body>
     
 
     <!--Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
             <div class="container">
-                <img class="logo" src="assets/imgs/logo1.png">
+                <img class="logo" src="assets/imgs/dma9-logo02.png">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -40,7 +40,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="contact.php">Contact Us</a>
                 </li>
-                <li class="nav-item "> 
+                <li class="nav-item icons"> 
                     <a href="cart.php"><i class="fa fa-shopping-cart">
                         <?php if(isset($_SESSION['quantity']) && $_SESSION['quantity'] != 0){
                             echo "<span class='cart-quantity'>".$_SESSION['quantity']."</span>";
