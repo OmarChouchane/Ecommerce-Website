@@ -1,6 +1,10 @@
 
 <?php include('layouts/header.php'); ?>
 
+
+
+<div id="banner-bg" class="container-fluid">
+
     <!--Home-->
         <section id="home">
             <div class="container">
@@ -12,51 +16,57 @@
         </section>
 
 
-    <!--Brand-->
-    <section id="brand" class="container">
-        <div class="row">
-            <img class="img-fluid col-lg-3 cold-md-6 col-sm-12" src="/assets/imgs/brand1.jpg">
-            <img class="img-fluid col-lg-3 cold-md-6 col-sm-12" src="/assets/imgs/brand2.jpg">
-            <img class="img-fluid col-lg-3 cold-md-6 col-sm-12" src="/assets/imgs/brand3.jpg">
-            <img class="img-fluid col-lg-3 cold-md-6 col-sm-12" src="/assets/imgs/brand4.jpg">
+
+    <!--Upper-->
+    <section id="upper" class=" py-5">
+
+        <div class="container my-5 pb-3 custom-container">
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <div class="custom-box">
+                        <img src="assets/imgs/featured1.png" alt="Image 1" class="img-fluid">
+                        <h4 class="mt-3">title</h4>
+                        <p class="mt-3">Short Description Lorem ipsum<br> Quo earum repudiandae <br>end of desc</p>
+                        <button class="btn btn-primary mt-3 mb-4">See More</button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="custom-box">
+                        <img src="assets/imgs/featured1.png" alt="Image 1" class="img-fluid">
+                        <h4 class="mt-3">title</h4>
+                        <p class="mt-3">Short Description Lorem ipsum<br> Quo earum repudiandae <br>end of desc</p>
+                        <button class="btn btn-primary mt-3 mb-4">See More</button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="custom-box">
+                        <img src="assets/imgs/featured1.png" alt="Image 1" class="img-fluid">
+                        <h4 class="mt-3">title</h4>
+                        <p class="mt-3">Short Description Lorem ipsum<br> Quo earum repudiandae <br>end of desc</p>
+                        <button class="btn btn-primary mt-3 mb-4">See More</button>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="custom-box">
+                        <img src="assets/imgs/featured1.png" alt="Image 3" class="img-fluid">
+                        <h4 class="mt-3">title</h4>
+                        <p class="mt-3">Short Description Lorem ipsum<br> Quo earum repudiandae <br>end of desc</p>
+                        <button class="btn btn-primary mt-3 mb-4">See More</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
 
-    <!--New-->
-    <section id="new" class="w-100">
-        <div class="row p-0 m-0">
-            <!--One-->
-            <div class="one col-lg-4 col-md-12 col-sm-12 p-0">
-                <img src="assets/imgs/1.jpg" alt="" class="img-fluid">
-                <div class="details">
-                    <h2>Extremely Awesome Shoes</h2>
-                    <button>SHOP NOW</button>
-                </div>
-            </div>
-            <!--Two-->
-            <div class="one col-lg-4 col-md-12 col-sm-12 p-0">
-                <img src="assets/imgs/2.jpg" alt="" class="img-fluid">
-                <div class="details">
-                    <h2>Awesome Jacket</h2>
-                    <button>SHOP NOW</button>
-                </div>
-            </div>
-            <!--Three-->
-            <div class="one col-lg-4 col-md-12 col-sm-12 p-0">
-                <img src="assets/imgs/3.jpg" alt="" class="img-fluid">
-                <div class="details">
-                    <h2>50% OFF Watches</h2>
-                    <button>SHOP NOW</button>
-                </div>
-            </div>
-        </div>
-    </section>
+
+
 
     <!--Featured-->
-    <section id="featured" class="my-5 pb-5">
-        <div class="container text-center mt-5 py-5">
-            <h3>Our Featured</h3>
+    <section id="featured" class="mt-5 mb-5 pb-5">
+        <div class="container text-center mt-5">
+            <h3>The Most Popular</h3>
             <hr class="mx-auto">
             <p>Here you can check out our featured products</p>
         </div>
@@ -86,6 +96,7 @@
 
         </div>
     </section>
+
 
 
 
@@ -221,6 +232,9 @@
 
         </div>
     </section>
+
+
+    </div>
 
 
 

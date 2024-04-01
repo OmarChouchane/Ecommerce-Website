@@ -20,9 +20,9 @@
     
 
     <!--Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light  fixed-top">
             <div class="container">
-                <img class="logo" src="assets/imgs/dma9-logo02.png">
+                <img class="logo" src="assets/imgs/dma9-logo-1.png">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
