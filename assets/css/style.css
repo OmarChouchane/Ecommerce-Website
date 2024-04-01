@@ -648,25 +648,18 @@ footer p{
     border-collapse: collapse;
 }
 
-.orders .product-info{
-    display: flex;
-    flex-wrap: wrap;
-}
 
 .orders .product-quantity{
     float: right;
 }
 
 .orders th{
-    text-align: left;
+    text-align: center;
     padding: 5px 10px;
     color: white;
     background-color: #fb774b;
 }
 
-.orders th:nth-child(3) {
-    text-align: right;
-}
 
 .orders td{
     padding: 10px 20px;
