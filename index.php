@@ -6,14 +6,14 @@
 <div id="banner-bg" class="container-fluid">
 
     <!--Home-->
-        <section id="home">
+    <section id="home">
             <div class="container">
                 <h5>NEW ARRIVALS</h5>
                 <h1><span>Best Prices</span>This Season</h1>
                 <p>Eshop offers the best products for the most affordable prices</p>
                 <button>SHOP NOW</button>
             </div>
-        </section>
+    </section>
 
 
 
@@ -234,7 +234,7 @@
     </section>
 
 
-    </div>
+</div>
 
 
 
