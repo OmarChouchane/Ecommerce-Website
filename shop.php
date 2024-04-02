@@ -8,16 +8,57 @@ include "server/connection.php";
 // Check if the search button is clicked
 if(isset($_GET['search'])){
 
-    $category = $_GET['category'];
-    $price = $_GET['price'];
+   
 
-    $stmt = $conn->prepare("SELECT * FROM products WHERE product_category = ? AND product_price <= ?");
+    if( isset($_GET['category']) && $_GET['price'] >= 0){
 
-    $stmt->bind_param("si", $category, $price);
 
-    $stmt->execute();
+        $category = $_GET['category'];
+        $price = $_GET['price'];
 
-    $products = $stmt->get_result();
+        
+
+        $stmt = $conn->prepare("SELECT * FROM products WHERE product_category = ? AND product_price <= ?");
+
+        $stmt->bind_param("si", $category, $price);
+
+        $stmt->execute();
+
+        $products = $stmt->get_result();
+
+        $total_no_of_pages = 1;$category = $_GET['category'];
+        $price = $_GET['price'];
+
+        $stmt = $conn->prepare("SELECT * FROM products WHERE product_category = ? AND product_price <= ?");
+
+        $stmt->bind_param("si", $category, $price);
+
+        $stmt->execute();
+
+        $products = $stmt->get_result();
+
+        $total_no_of_pages = 1;
+
+    }else{
+        
+        $price = $_GET['price'];
+
+        
+
+        $stmt = $conn->prepare("SELECT * FROM products WHERE product_price <= ?");
+
+        $stmt->bind_param("i",$price);
+
+        $stmt->execute();
+
+        $products = $stmt->get_result();
+
+        $total_no_of_pages = 1;
+        
+
+    }
+
+    
 
 
 
