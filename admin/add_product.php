@@ -71,7 +71,7 @@ if(isset($_POST['add_product_btn'])){
 
 
     <div class="mx-auto container">
-            <form id="checkout-form" method="POST" action="add_product.php">
+            <form id="checkout-form" method="POST" action="add_product.php" enctype="multipart/form-data">
 
                     <div class="form-group checkout-small-element">
                         <label>Title</label>
