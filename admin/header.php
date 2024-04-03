@@ -1,3 +1,14 @@
+<?php 
+
+session_start();
+
+include '../server/connection.php';
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
