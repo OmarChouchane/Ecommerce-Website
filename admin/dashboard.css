@@ -206,7 +206,6 @@ a {
         padding-top: 0;
     }
 
-
 }
 
 
@@ -218,5 +217,23 @@ a {
         padding: 5rem 1rem 1rem 1rem !important;
     }
 
+
+}
+
+
+
+
+.page-title h2{
+    font-weight: 700;
+    margin-top: 1rem;
+}
+
+
+
+.edit-product{
+
+    margin-left: 0 !important;
+    display: flex;
+    justify-content: flex-start;
 
 }

@@ -27,7 +27,7 @@ if(!isset($_SESSION['admin_logged_in'])){
 
 
     //2. return page number of products
-    $stmt1 = $conn->prepare("SELECT COUNT(*) AS total_records FROM orders");
+    $stmt1 = $conn->prepare("SELECT COUNT(*) AS total_records FROM products");
 
     $stmt1->execute();
 
@@ -47,15 +47,13 @@ if(!isset($_SESSION['admin_logged_in'])){
     $previous_page = $page_no - 1;
     $next_page = $page_no + 1;
 
-    $adjacent = "2";
-
     $total_no_of_pages = ceil($total_records/$total_records_per_page);
 
 
     //4. get all products  
-    $stmt2 = $conn->prepare("SELECT * FROM orders LIMIT $offset, $total_records_per_page");
+    $stmt2 = $conn->prepare("SELECT * FROM products LIMIT $offset, $total_records_per_page");
     $stmt2->execute();
-    $orders = $stmt2->get_result();
+    $products = $stmt2->get_result();
 
 
 
@@ -74,7 +72,7 @@ if(!isset($_SESSION['admin_logged_in'])){
     <div class="container page-title text-left mt-5 py-4">
         <h2>DASHBOARD</h2>
         <hr class="">
-        <h1>Orders</h1>
+        <h1>Products</h1>
     </div>
 
         
@@ -85,30 +83,34 @@ if(!isset($_SESSION['admin_logged_in'])){
         <table class="table table-striped table-dark">
         <thead>
             <tr>
-            <th scope="col">Order Id</th>
-            <th scope="col">Order Status</th>
-            <th scope="col">User Id</th>
-            <th scope="col">Order Date</th>
-            <th scope="col">User Phone</th>
-            <th scope="col">User Address</th>
+            <th scope="col">Product Id</th>
+            <th scope="col">Product Image</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Product Price</th>
+            <th scope="col">Product Offer</th>
+            <th scope="col">Product Category</th>
+            <th scope="col">Product Color</th>
             <th scope="col">Edit</th>
             <th scope="col">Delete</th>
             </tr>
         </thead>
         <tbody>
 
-        <?php while($order = $orders->fetch_assoc()){ ?>
+        <?php while($product = $products->fetch_assoc()){ ?>
 
-            <tr>
-            <th scope="row"><?php echo $order['order_id']; ?></th>
-            <td><?php echo $order['order_status']; ?></td>
-            <td><?php echo $order['user_id']; ?></td>
-            <td><?php echo $order['order_date']; ?></td>
-            <td><?php echo $order['user_phone']; ?></td>
-            <td><?php echo $order['user_address']; ?></td>
-            <td><a href="" class="btn btn-primary">Edit</a></td>
-            <td><a href="" class="btn btn-danger">Delete</a></td>
-            </tr>
+                <tr>
+
+                    <th scope="row"><?php echo $product['product_id']; ?></th>
+                    <td><img src="../assets/imgs/<?php echo $product['product_image']; ?>" style="width: 70px; height: 70px;"></td>
+                    <td><?php echo $product['product_name']; ?></td>
+                    <td>$<?php echo $product['product_price']; ?></td>
+                    <td><?php echo $product['product_special_offer']; ?>%</td>
+                    <td><?php echo $product['product_category']; ?></td>
+                    <td><?php echo $product['product_color']; ?></td>
+                    <td><a href="edit_product.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-primary">Edit</a></td>
+                    <td><a href="" class="btn btn-danger">Delete</a></td>
+
+                </tr>
 
         <?php } ?>
         </tbody>
@@ -137,6 +139,9 @@ if(!isset($_SESSION['admin_logged_in'])){
                     </li>
                 </ul>
         </nav>
+
+
+
 
 
 
