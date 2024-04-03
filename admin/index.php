@@ -1,9 +1,6 @@
 <?php
 
 
-session_start();
-
-
 //if user is not logged in
 if(!isset($_SESSION['admin_logged_in'])){
 
@@ -12,6 +9,16 @@ if(!isset($_SESSION['admin_logged_in'])){
 
 }
 
+//get orders
+
+include '../server/connection.php';
+
+$stmt = $conn->prepare("SELECT * FROM orders");
+
+$stmt->execute();
+
+$orders = $stmt->get_result();
+
 
 
 ?>
@@ -19,55 +26,13 @@ if(!isset($_SESSION['admin_logged_in'])){
 
 
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/assets/css/fontawesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+<?php include 'header.php'; ?>  
 
-
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="dashboard.css">
-    <title>The North Face</title>
-    <link rel="icon" href="../assets/imgs/logo22.png" type="image/x-icon">
-</head>
-<body id="body-pd" class="body-pd">
+<?php include 'sidemenu.php'; ?>  
 
 
 
-
-    <!--Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
-            <div class="container">
-                <img class="logo" src="../assets/imgs/logo2.png">
-            <div class="nav-buttons">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item admin">
-                    <span>Admin.</span>
-                </li>
-                </ul>
-            </div>
-            </div>
-    </nav>
-
-
-
-    <!--Sidebar-->
-    <section id="sidebar">
-        <div class="l-navbar mt-5 pt-5 show" id="nav-bar">
-            <nav class="nav">
-                <div> 
-                    <div class="nav_list"> <a href="index.php" class="nav_link active"> <i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Dashboard</span> </a> <a href="index.php" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Orders</span> </a> <a href="produts.php" class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i> <span class="nav_name">Products</span> </a> <a href="account.php" class="nav_link"> <i class='bx bx-bookmark nav_icon'></i> <span class="nav_name">Account</span> </a> <a href="add_new_product.php" class="nav_link"> <i class='bx bx-folder nav_icon'></i> <span class="nav_name">Add New Product</span> </a> <a href="#" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Help</span> </a> </div>
-                </div> 
-                <a href="logout.php?logout=1" class="nav_link sign-out"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Sign Out</span> </a>
-            </nav>
-        </div>
-    </section>
+    
 
 
 
