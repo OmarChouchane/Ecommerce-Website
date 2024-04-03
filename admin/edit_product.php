@@ -61,7 +61,7 @@ if(isset($_GET['product_id'])){
     <div class="container page-title text-left mt-5 py-4">
         <h2>DASHBOARD</h2>
         <hr class="">
-        <h1>Products</h1>
+        <h1>Edit Product</h1>
     </div>
 
         

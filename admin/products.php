@@ -73,6 +73,13 @@ if(!isset($_SESSION['admin_logged_in'])){
         <div class="py-1">
 
             <p style="color:red;font-weight: 500;" class="text-center">
+                    <?php if(isset($_GET['add_error'])){ echo $_GET['add_error'];}?>
+            </p>
+            <p style="color:green;font-weight: 500;" class="text-center">
+                    <?php if(isset($_GET['add_success'])){ echo $_GET['add_success'];}?>
+            </p>
+
+            <p style="color:red;font-weight: 500;" class="text-center">
                     <?php if(isset($_GET['edit_error'])){ echo $_GET['edit_error'];}?>
             </p>
             <p style="color:green;font-weight: 500;" class="text-center">

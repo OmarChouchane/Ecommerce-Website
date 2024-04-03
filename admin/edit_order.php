@@ -56,7 +56,7 @@ if(isset($_GET['order_id'])){
     <div class="container page-title text-left mt-5 py-4">
         <h2>DASHBOARD</h2>
         <hr class="">
-        <h1>Order Details</h1>
+        <h1>Edit Order</h1>
     </div>
 
         
