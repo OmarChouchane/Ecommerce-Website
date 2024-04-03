@@ -31,9 +31,9 @@ if(isset($_GET['product_id'])){
         $stmt1->bind_param('ssissii', $product_title, $product_description, $product_price, $product_category, $product_color, $product_special_offer, $product_id);
 
         if($stmt1->execute()){
-            header('location: products.php?edit_success=product edited successfully&product_id='.$product_id);
+            header('location: products.php?edit_success=product edited successfully');
         }else{
-            header('location: products.php?edit_error=error editing password');
+            header('location: products.php?edit_error=error editing product');
         }
 
 

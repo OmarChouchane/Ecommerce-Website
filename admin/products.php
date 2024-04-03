@@ -70,10 +70,10 @@ if(!isset($_SESSION['admin_logged_in'])){
 
 
     <div class="container page-title text-left mt-5 py-4">
-        <div class="py-4">
+        <div class="py-1">
 
             <p style="color:red;font-weight: 500;" class="text-center">
-                    <?php if(isset($_GET['edit_error'])){ echo $_GET['error'];}?>
+                    <?php if(isset($_GET['edit_error'])){ echo $_GET['edit_error'];}?>
             </p>
             <p style="color:green;font-weight: 500;" class="text-center">
                     <?php if(isset($_GET['edit_success'])){ echo $_GET['edit_success'];}?>
@@ -85,7 +85,7 @@ if(!isset($_SESSION['admin_logged_in'])){
             <p style="color:green;font-weight: 500;" class="text-center">
                     <?php if(isset($_GET['delete_success'])){ echo $_GET['delete_success'];}?>
             </p>
-            
+
         </div>
         <h2>DASHBOARD</h2>
         <hr class="">

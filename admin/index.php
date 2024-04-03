@@ -72,6 +72,16 @@ if(!isset($_SESSION['admin_logged_in'])){
 
 
     <div class="container page-title text-left mt-5 py-4">
+    <div class="py-1">
+
+        <p style="color:red;font-weight: 500;" class="text-center">
+                <?php if(isset($_GET['order_edit_error'])){ echo $_GET['order_edit_error'];}?>
+        </p>
+        <p style="color:green;font-weight: 500;" class="text-center">
+                <?php if(isset($_GET['order_edit_success'])){ echo $_GET['order_edit_success'];}?>
+        </p>
+
+    </div>
         <h2>DASHBOARD</h2>
         <hr class="">
         <h1>Orders</h1>
