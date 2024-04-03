@@ -70,6 +70,23 @@ if(!isset($_SESSION['admin_logged_in'])){
 
 
     <div class="container page-title text-left mt-5 py-4">
+        <div class="py-4">
+
+            <p style="color:red;font-weight: 500;" class="text-center">
+                    <?php if(isset($_GET['edit_error'])){ echo $_GET['error'];}?>
+            </p>
+            <p style="color:green;font-weight: 500;" class="text-center">
+                    <?php if(isset($_GET['edit_success'])){ echo $_GET['edit_success'];}?>
+            </p>
+
+            <p style="color:red;font-weight: 500;" class="text-center">
+                    <?php if(isset($_GET['delete_error'])){ echo $_GET['delete_error'];}?>
+            </p>
+            <p style="color:green;font-weight: 500;" class="text-center">
+                    <?php if(isset($_GET['delete_success'])){ echo $_GET['delete_success'];}?>
+            </p>
+            
+        </div>
         <h2>DASHBOARD</h2>
         <hr class="">
         <h1>Products</h1>
@@ -108,7 +125,7 @@ if(!isset($_SESSION['admin_logged_in'])){
                     <td><?php echo $product['product_category']; ?></td>
                     <td><?php echo $product['product_color']; ?></td>
                     <td><a href="edit_product.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-primary">Edit</a></td>
-                    <td><a href="" class="btn btn-danger">Delete</a></td>
+                    <td><a href="delete_product.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-danger">Delete</a></td>
 
                 </tr>
 

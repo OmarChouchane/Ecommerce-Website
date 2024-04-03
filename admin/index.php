@@ -106,8 +106,8 @@ if(!isset($_SESSION['admin_logged_in'])){
             <td><?php echo $order['order_date']; ?></td>
             <td><?php echo $order['user_phone']; ?></td>
             <td><?php echo $order['user_address']; ?></td>
-            <td><a href="" class="btn btn-primary">Edit</a></td>
-            <td><a href="" class="btn btn-danger">Delete</a></td>
+            <td><a href="edit_order.php?order_id=<?php echo $order['order_id']; ?>" class="btn btn-primary">Edit</a></td>
+            <td><a href="edit_order.php?order_id=<?php echo $order['order_id']; ?>" class="btn btn-danger">Delete</a></td>
             </tr>
 
         <?php } ?>

@@ -5,6 +5,7 @@
 <?php
 
 
+
 if(isset($_GET['product_id'])){
 
     $product_id = $_GET['product_id'];
@@ -30,9 +31,9 @@ if(isset($_GET['product_id'])){
         $stmt1->bind_param('ssissii', $product_title, $product_description, $product_price, $product_category, $product_color, $product_special_offer, $product_id);
 
         if($stmt1->execute()){
-            header('location: edit_product.php?edit_success=product edited successfully&product_id='.$product_id);
+            header('location: products.php?edit_success=product edited successfully&product_id='.$product_id);
         }else{
-            header('location: edit_product.php?error=error changing password');
+            header('location: products.php?edit_error=error editing password');
         }
 
 
@@ -69,12 +70,6 @@ if(isset($_GET['product_id'])){
 
     <div class="mx-auto container">
             <form id="checkout-form" method="POST" action="edit_product.php">
-                <p style="color:red;" class="text-center">
-                    <?php if(isset($_GET['error'])){ echo $_GET['error'];}?>
-                </p>
-                <p style="color:green;" class="text-center">
-                    <?php if(isset($_GET['edit_success'])){ echo $_GET['edit_success'];}?>
-                </p>
 
 
                 <?php while($product = $products->fetch_assoc()){ ?>
